@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mb-4 text-primary">Add Contacts</h1>
+<div id="contact-forms">
+    {% include 'partials/form.html' %}
+</div>
+<div class="my-4">
+    <button type="button" class="btn btn-success me-2" hx-get="{% url 'create-contact' %}" hx-target="#contact-forms"
+        hx-swap="beforeend">+ Add Contact</button>
+    <button type="submit" class="btn btn-primary" id="submit-all">Submit all</button>
+</div>
+
+
+<div class="container">
+    <div id="contact-list">
+        <h1>Contacts</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                {% include 'partials/contact.html' %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <p>Total contacts: {{ contacts.count }}</p>
+</div>
+<form action="{% url 'download-contact-list' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+        Download list</button>
+</form>
+{% endblock %}
