@@ -72,6 +72,7 @@ Behold, the table of your contacts! It's simple and inviting, just like a deligh
 
 ### And there you have it! 🎉🥳
 
+![screenshot](./core/images/screenshot.png)
 Now you have a Contact Management app th. Thanks to Django and HTMX, we can build interactive and delightful applications without drowning in excessive JavaScript.
 
 Feel free to extend and customize this app further ! 😄🌈
