@@ -1,4 +1,4 @@
-# Django + htmx Example: A Fancy and Jovial Contact Management App 😎📇
+# Django + htmx Example: A Contact Management App 😎📇
 
 Welcome to our Contact Management application built with Django and the amazing HTMX library! With HTMX, we can harness modern browser features directly from HTML, making our app super interactive without the need for excessive JavaScript. 🚀🌟
 
